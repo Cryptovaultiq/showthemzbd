@@ -32,7 +32,7 @@
   let selectedWallet = {
     id: 'metamask',
     name: 'MetaMask',
-    img: 'metamask.png'
+    img: 'Metamask.png'
   };
 
   function openModal(){
@@ -168,3 +168,4 @@
   }
 
 })();
+
