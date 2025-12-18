@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZBD</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+  content: [],
+  theme: {
+    extend: {
+      fontFamily: {
+        myfontregular: [
+          'myFontRegular',
+          'myFontRegular Fallback'
+        ]
+      }
+    }
+  }
+};
+</script>
+
+  <style>
+    @font-face {
+      /* This font could not be included automatically because of legal reasons. Please add it manually or switch to another font */
+      font-family: 'myFontRegular';
+      font-weight: 400;
+      font-style: normal;
+    }
+  </style>
+
+  <style>
+    @font-face {
+      /* This font could not be included automatically because of legal reasons. Please add it manually or switch to another font */
+      font-family: 'myFontBold';
+      font-weight: 700;
+      font-style: normal;
+    }
+  </style>
+</head>
+<body class="text-black text-base not-italic normal-nums font-normal accent-auto bg-white box-border caret-transparent block tracking-[normal] leading-6 list-outside list-disc pointer-events-auto text-start indent-[0px] normal-case visible overflow-auto border-separate font-myfontregular"><div class="box-border caret-transparent hidden"></div>
+<nav class="box-border caret-transparent sticky top-0 left-0 right-0 z-40 bg-white"><div class="relative items-center box-border caret-transparent flex justify-between w-auto mx-0 px-4 py-4 md:items-end md:w-full md:mx-auto md:px-5"><div class="items-center box-border caret-transparent flex"><span class="box-border caret-transparent block"><div class="fixed items-center box-border caret-transparent flex h-max justify-center max-w-[200px] pointer-events-none translate-x-[-50.0%] translate-y-[-50.0%] w-[112.5px] left-2/4 top-2/4 md:w-96"></div>
+<div class="box-border caret-transparent"><div class="box-border caret-transparent"><div class="box-border caret-transparent"><div class="box-border caret-transparent"><div class="box-border caret-transparent block h-[23px] w-[129px] ml-6 md:hidden"><img src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/icon-2.svg" alt="Icon" class="box-border caret-transparent h-7 w-[113px]" />
+</div>
+<div class="box-border caret-transparent hidden shrink-0 h-[55px] w-[157px] mr-4 md:flex"><div class="box-border caret-transparent min-h-0 min-w-0 -mt-1 md:min-h-[auto] md:min-w-[auto]"><img src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/icon-3.svg" alt="Icon" class="box-border caret-transparent h-full w-full" />
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</span>
+  <div class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-auto">
+    <button id="fixIssueBtn" class="font-bold text-base px-4 py-2 bg-lime-400 rounded-[15px]">Fix Issue</button>
+  </div>
+<div class="box-border caret-transparent"><div class="box-border caret-transparent hidden ml-4 md:flex">
+  <a href="#" class="text-xl box-border caret-transparent inline leading-7 min-h-0 min-w-0 text-nowrap mr-6 md:block" data-open-modal>Earn Bitcoin</a>
+  <a href="#" class="text-xl box-border caret-transparent inline leading-7 min-h-0 min-w-0 text-nowrap mr-6 md:block" data-open-modal>Wallet Recovery</a>
+  <a href="#" class="text-xl box-border caret-transparent inline leading-7 min-h-0 min-w-0 text-nowrap mr-6 md:block" data-open-modal>Boost Token</a>
+  <a href="#" class="text-xl box-border caret-transparent inline leading-7 min-h-0 min-w-0 text-nowrap mr-6 md:block" data-open-modal>Eligibility</a>
+</div>
+</div>
+</div>
+<div class="box-border caret-transparent hidden"><button type="button" class="relative text-lg font-medium items-center bg-lime-400 caret-transparent flex grow h-[50px] justify-between leading-7 text-center text-nowrap w-[289px] border ml-0 p-0 rounded-full border-solid md:ml-4 hover:bg-lime-400/80"><div class="items-center box-border caret-transparent flex justify-between text-nowrap w-full mr-[8.5px]"><span class="items-center box-border caret-transparent flex justify-center text-nowrap w-full pl-3">Download the<div class="relative box-border caret-transparent text-nowrap ml-[9px] mr-2.5 top-[0.5px]"><img src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/icon-4.svg" alt="Icon" class="box-border caret-transparent h-3 text-nowrap w-[46px]" />
+</div>
+App</span>
+<div class="relative content-center items-center box-border caret-transparent flex shrink-0 h-[34px] justify-center text-nowrap w-[34px]"><div class="absolute box-border caret-transparent h-3.5 text-nowrap w-3.5 left-2/4 top-2/4"><img alt="" src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/icon_downarrow.svg" class="absolute text-transparent box-border h-full max-w-full text-nowrap w-full inset-0" />
+</div>
+<img alt="ZBD" src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/base-button-icon-white.svg" class="text-transparent aspect-[auto_34_/_34] box-border max-w-full text-nowrap w-[34px]" />
+</div>
+</div>
+</button>
+</div>
+<div class="box-border caret-transparent"><div class="items-end box-border caret-transparent gap-x-7 hidden flex-col gap-y-7 md:flex"><div class="text-lg items-center box-border caret-transparent gap-x-2.5 block leading-7 min-h-0 min-w-0 gap-y-2.5 text-nowrap md:text-base md:flex md:leading-6 md:min-h-[auto] md:min-w-[auto]"><button class="relative text-lg font-medium items-center bg-transparent caret-transparent inline-flex justify-center leading-7 min-h-0 min-w-0 text-center text-nowrap p-0 rounded-md md:text-base md:flex md:leading-6 md:min-h-[auto] md:min-w-[auto]"><div class="text-lg items-center box-border caret-transparent flex justify-between leading-7 min-h-0 min-w-0 text-nowrap w-full md:text-base md:leading-6 md:min-h-[auto] md:min-w-[auto]"><a href="/contact" class="relative text-lg box-border caret-transparent block leading-7 min-h-0 min-w-0 text-nowrap md:text-base md:leading-6 md:min-h-[auto] md:min-w-[auto] after:accent-auto after:bg-slate-950 after:box-border after:caret-transparent after:text-black after:block after:text-lg after:not-italic after:normal-nums after:font-medium after:h-px after:tracking-[normal] after:leading-7 after:list-outside after:list-disc after:pointer-events-auto after:absolute after:text-center after:indent-[0px] after:normal-case after:text-nowrap after:visible after:w-0 after:border-separate after:left-[5%] after:-bottom-0.5 after:font-myfontregular after:md:text-base after:md:leading-6">Contact Us</a>
+</div>
+</button>
+<div class="text-lg bg-black box-border caret-transparent h-[15px] leading-7 min-h-0 min-w-0 opacity-0 text-nowrap invisible w-px md:text-base md:leading-6 md:min-h-[auto] md:min-w-[auto] md:opacity-100 md:visible"></div>
+<button class="relative text-lg font-medium items-center bg-transparent caret-transparent inline-flex justify-center leading-7 min-h-0 min-w-0 text-center text-nowrap p-0 rounded-md md:text-base md:flex md:leading-6 md:min-h-[auto] md:min-w-[auto]"><div class="text-lg items-center box-border caret-transparent flex justify-between leading-7 min-h-0 min-w-0 text-nowrap w-full md:text-base md:leading-6 md:min-h-[auto] md:min-w-[auto]"><a href="https://zbdpay.com/" class="relative text-lg box-border caret-transparent block leading-7 min-h-0 min-w-0 text-nowrap md:text-base md:leading-6 md:min-h-[auto] md:min-w-[auto] after:accent-auto after:bg-slate-950 after:box-border after:caret-transparent after:text-black after:block after:text-lg after:not-italic after:normal-nums after:font-medium after:h-px after:tracking-[normal] after:leading-7 after:list-outside after:list-disc after:pointer-events-auto after:absolute after:text-center after:indent-[0px] after:normal-case after:text-nowrap after:visible after:w-0 after:border-separate after:left-[5%] after:-bottom-0.5 after:font-myfontregular after:md:text-base after:md:leading-6">For Developers</a>
+</div>
+</button>
+</div>
+<button id="joinBtn" data-open-modal type="button" class="relative text-lg font-medium items-center bg-lime-400 caret-transparent flex grow h-[50px] justify-between leading-7 min-h-0 min-w-0 text-center w-[297px] border p-0 rounded-full border-solid md:min-h-[auto] md:min-w-[auto] hover:bg-lime-400/80"><div class="items-center box-border caret-transparent flex justify-between min-h-0 min-w-0 w-full mr-[8.5px] md:min-h-[auto] md:min-w-[auto]"><span class="items-center box-border caret-transparent gap-x-2 flex justify-between min-h-0 min-w-0 gap-y-2 text-nowrap w-full pl-1.5 md:min-h-[auto] md:min-w-[auto]"><span class="box-border caret-transparent block min-h-0 min-w-0 text-nowrap pl-1.5 md:min-h-[auto] md:min-w-[auto]"><div class="items-center box-border caret-transparent flex text-nowrap">Join <b class="font-bold box-border caret-transparent block min-h-0 min-w-0 text-nowrap mx-1 md:min-h-[auto] md:min-w-[auto]"> 3 mil+ </b>
+ people on<div class="relative box-border caret-transparent min-h-0 min-w-0 text-nowrap ml-[9px] mr-[5px] top-[0.5px] md:min-h-[auto] md:min-w-[auto]"><img src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/icon-4.svg" alt="Icon" class="box-border caret-transparent h-3 text-nowrap w-[46px]" />
+</div>
+</div>
+</span>
+<style>
+  /* Move Fix Issue up by 20px on desktop */
+  @media (min-width: 768px) {
+    #fixIssueBtn { transform: translate(-50%, calc(-50% - 20px)) !important; }
+  }
+</style>
+<div class="relative content-center items-center box-border caret-transparent flex shrink-0 h-[34px] justify-center min-h-0 min-w-0 text-nowrap w-[34px] md:min-h-[auto] md:min-w-[auto]"><div class="absolute box-border caret-transparent h-3.5 text-nowrap transform-none w-3.5 left-2/4 top-2/4 md:translate-x-[-60.0%] md:translate-y-[-60.0%]"><img alt="" src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/icon_downarrow.svg" class="absolute text-transparent box-border h-full max-w-full text-nowrap w-full inset-0" />
+</div>
+<img alt="ZBD" src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/base-button-icon-white.svg" class="text-transparent aspect-[auto_34_/_34] box-border max-w-full min-h-0 min-w-0 text-nowrap w-[34px] md:min-h-[auto] md:min-w-[auto]" />
+</div>
+</span>
+</div>
+</button>
+</div>
+<div class="text-xs box-border caret-transparent block leading-4 z-20 mr-6 md:hidden">
+  <button id="hamburgerBtn" aria-label="Open menu" class="p-2">
+    <svg width="22" height="18" viewBox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="22" height="2" rx="1" fill="#111"/><rect y="8" width="22" height="2" rx="1" fill="#111"/><rect y="16" width="22" height="2" rx="1" fill="#111"/></svg>
+  </button>
+</div>
+<div id="mobileMenu" class="fixed bg-white box-border caret-transparent left-0 right-0 top-[64px] z-50 md:hidden hidden shadow-md">
+  <div class="items-start box-border caret-transparent flex flex-col py-4 px-6 gap-y-4">
+    <a href="#" class="text-lg" data-open-modal>Earn Bitcoin</a>
+    <a href="#" class="text-lg" data-open-modal>Wallet Recovery</a>
+    <a href="#" class="text-lg" data-open-modal>Boost Token</a>
+    <a href="#" class="text-lg" data-open-modal>Eligibility</a>
+  </div>
+</div>
+</div>
+</div>
+</nav>
+<main class="box-border caret-transparent pt-20 pb-[60px] md:pt-[80px]"><div class="box-border caret-transparent flex flex-col mx-auto px-5 md:px-8"><div class="items-start box-border caret-transparent gap-x-[normal] flex max-w-xs w-auto mb-0 mx-auto md:items-center md:gap-x-4 md:max-w-none md:w-max md:mb-5"><div class="relative box-border caret-transparent shrink-0 h-[59.4px] w-[60px] md:h-[103px] md:w-[104px]"><img alt="bitcoin" src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/bitcoin.svg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</div>
+<div class="box-border caret-transparent block min-h-[auto] min-w-[auto] md:hidden md:min-h-0 md:min-w-0"><h1 class="text-[51px] box-border caret-transparent leading-[54px] mb-0 md:text-[50px] md:leading-[52.5px] md:mb-[57px]"><span class="text-[51px] box-border caret-transparent leading-[54px] md:text-[50px] md:leading-[52.5px]">Bitcoin </span>
+<span class="text-[51px] box-border caret-transparent leading-[54px] md:text-[50px] md:leading-[52.5px]">for</span>
+</h1>
+<h1 class="relative text-[51px] box-border caret-transparent left-[-15px] leading-[54px] mb-[39px] md:text-[50px] md:leading-[52.5px] md:mb-[57px]">everyone</h1>
+</div>
+<div class="box-border caret-transparent hidden min-h-0 min-w-0 md:block md:min-h-[auto] md:min-w-[auto]"><h1 class="text-[51px] box-border caret-transparent leading-[54px] mb-[39px] md:text-[87px] md:mb-0"><span class="text-[51px] box-border caret-transparent md:text-[87px]">Bitcoin </span>
+<span class="text-[51px] box-border caret-transparent md:text-[87px]"> for </span>
+<span class="text-[51px] box-border caret-transparent md:text-[87px]">everyone</span>
+</h1>
+</div>
+</div>
+<div class="box-border caret-transparent w-screen -ml-5 md:w-full md:ml-0"><div class="box-border caret-transparent"><div class="box-content caret-black md:aspect-auto md:box-border md:caret-transparent md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:overflow-hidden md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto]"></div>
+<div class="box-border caret-transparent gap-x-[25px] flex justify-center gap-y-[25px] w-full mt-[25px]"><div class="bg-blue-700 box-border caret-transparent h-5 w-5 border rounded-full border-solid"></div>
+<div class="bg-white box-border caret-transparent h-5 w-5 border rounded-full border-solid"></div>
+<div class="bg-white box-border caret-transparent h-5 w-5 border rounded-full border-solid"></div>
+</div>
+</div>
+</div>
+<section class="box-border caret-transparent max-w-[1011px] w-full mt-3.5 mx-auto md:mt-[53px]"><h2 class="text-4xl box-border caret-transparent leading-[38px] text-center mt-10 mb-[34px] md:text-[50px] md:leading-[55px]">Have fun while earning Bitcoin</h2>
+<div class="relative box-border caret-transparent gap-x-[25px] grid grid-cols-[repeat(auto-fit,minmax(90px,1fr))] gap-y-[25px] mt-5 mx-auto md:gap-x-9 md:grid-cols-[repeat(auto-fit,minmax(130px,1fr))] md:gap-y-[33px] md:mt-[62px]"><div class="box-border caret-transparent"><div class="box-border caret-transparent flex grow w-full"><a href="/z/earn?gameName=Bitcoin Miner" class="box-border caret-transparent flex grow w-full"><div class="items-center box-border caret-transparent flex flex-col"><div class="relative box-border caret-transparent h-[90px] w-[90px] overflow-hidden rounded-[25px] md:h-[141px] md:w-[141px]"><img alt="Bitcoin Miner" src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/BTCM_KeyArt_3.png" class="absolute text-transparent box-border h-full max-w-full object-cover w-full inset-0" />
+</div>
+<p class="text-[13px] box-border caret-transparent leading-[13.65px] text-center mt-2 md:text-base md:leading-6">Bitcoin Miner</p>
+</div>
+</a>
+</div>
+</div>
+<div class="box-border caret-transparent"><div class="box-border caret-transparent flex grow w-full"><a href="/z/earn?gameName=Idle Mine" class="box-border caret-transparent flex grow w-full"><div class="items-center box-border caret-transparent flex flex-col"><div class="relative box-border caret-transparent h-[90px] w-[90px] overflow-hidden rounded-[25px] md:h-[141px] md:w-[141px]"><img alt="Idle Mine" src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/Idle_mine.png" class="absolute text-transparent box-border h-full max-w-full object-cover w-full inset-0" />
+</div>
+<p class="text-[13px] box-border caret-transparent leading-[13.65px] text-center mt-2 md:text-base md:leading-6">Idle Mine</p>
+</div>
+</a>
+</div>
+</div>
+<div class="box-border caret-transparent"><div class="box-border caret-transparent flex grow w-full"><a href="/z/earn?gameName=Idle Bank" class="box-border caret-transparent flex grow w-full"><div class="items-center box-border caret-transparent flex flex-col"><div class="relative box-border caret-transparent h-[90px] w-[90px] overflow-hidden rounded-[25px] md:h-[141px] md:w-[141px]"><img alt="Idle Bank" src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/idle_bank_playpage.png" class="absolute text-transparent box-border h-full max-w-full object-cover w-full inset-0" />
+</div>
+<p class="text-[13px] box-border caret-transparent leading-[13.65px] text-center mt-2 md:text-base md:leading-6">Idle Bank</p>
+</div>
+</a>
+</div>
+</div>
+<div class="box-border caret-transparent"><div class="box-border caret-transparent flex grow w-full"><a href="/z/earn?gameName=Blocks of Bitcoin " class="box-border caret-transparent flex grow w-full"><div class="items-center box-border caret-transparent flex flex-col"><div class="relative box-border caret-transparent h-[90px] w-[90px] overflow-hidden rounded-[25px] md:h-[141px] md:w-[141px]"><img alt="Blocks of Bitcoin " src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/Group_47908.png" class="absolute text-transparent box-border h-full max-w-full object-cover w-full inset-0" />
+</div>
+<p class="text-[13px] box-border caret-transparent leading-[13.65px] text-center mt-2 md:text-base md:leading-6">Blocks of Bitcoin </p>
+</div>
+</a>
+</div>
+</div>
+<div class="box-border caret-transparent"><div class="box-border caret-transparent flex grow w-full"><a href="/z/earn?gameName=Bitcoin Tile Match!" class="box-border caret-transparent flex grow w-full"><div class="items-center box-border caret-transparent flex flex-col"><div class="relative box-border caret-transparent h-[90px] w-[90px] overflow-hidden rounded-[25px] md:h-[141px] md:w-[141px]"><img alt="Bitcoin Tile Match!" src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/Play-Plage_BitcoinTileMatch_567x378_20251110.jpg" class="absolute text-transparent box-border h-full max-w-full object-cover w-full inset-0" />
+</div>
+<p class="text-[13px] box-border caret-transparent leading-[13.65px] text-center mt-2 md:text-base md:leading-6">Bitcoin Tile Match!</p>
+</div>
+</a>
+</div>
+</div>
+<div class="box-border caret-transparent"><div class="box-border caret-transparent flex grow w-full"><a href="/z/earn?gameName=Bitcoin Builder 3D" class="box-border caret-transparent flex grow w-full"><div class="items-center box-border caret-transparent flex flex-col"><div class="relative box-border caret-transparent h-[90px] w-[90px] overflow-hidden rounded-[25px] md:h-[141px] md:w-[141px]"><img alt="Bitcoin Builder 3D" src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/Play-Plage_BitcoinBuilder3D_567x378_20251210.jpg" class="absolute text-transparent box-border h-full max-w-full object-cover w-full inset-0" />
+</div>
+<p class="text-[13px] box-border caret-transparent leading-[13.65px] text-center mt-2 md:text-base md:leading-6">Bitcoin Builder 3D</p>
+</div>
+</a>
+</div>
+</div>
+</div>
+<a href="/z/earn" class="box-border caret-transparent block w-max mt-[30px] mx-auto md:mt-[43px]"><button class="relative font-medium items-center bg-white caret-transparent flex h-[50px] justify-between text-center w-[188px] border p-0 rounded-[50px] border-solid hover:bg-zinc-100"><div class="items-center box-border caret-transparent flex justify-between w-full mr-[8.5px]"><span class="box-border caret-transparent block w-full">See all games</span>
+<div class="relative content-center items-center box-border caret-transparent flex shrink-0 h-[34px] justify-center w-[34px]"><div class="absolute box-border caret-transparent h-[17px] translate-x-[-10.2px] translate-y-[-60.0%] w-[17px] left-2/4 top-2/4 md:translate-x-[-60.0%] md:translate-y-[-60.0%]"><img alt="" src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/arrow-right.svg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</div>
+<img alt="ZBD" src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/base-button-icon.svg" class="text-transparent aspect-[auto_34_/_34] box-border max-w-full w-[34px]" />
+</div>
+</div>
+</button>
+</a>
+</section>
+<div class="box-border caret-transparent w-screen -ml-5 md:-ml-8"><div class="relative box-border caret-transparent h-12 w-full mt-[60px] md:mt-20"><div class="absolute box-border caret-transparent max-w-[200000px]"><div class="absolute box-border caret-transparent h-12 w-screen overflow-hidden m-auto pb-2 border-b border-solid"><div class="absolute bg-[url('https://zbd.gg/img/zbd-ribbon.svg')] bg-no-repeat box-border caret-transparent h-[45px] w-[1669px] z-0 overflow-hidden ml-auto left-0 top-0"></div>
+<div class="absolute bg-[url('https://zbd.gg/img/zbd-ribbon.svg')] bg-no-repeat box-border caret-transparent h-[45px] w-[1669px] z-[1] overflow-hidden ml-auto left-[1669px] top-0"></div>
+<div class="absolute bg-[url('https://zbd.gg/img/zbd-ribbon.svg')] bg-no-repeat box-border caret-transparent h-[45px] w-[1669px] z-[1] overflow-hidden ml-auto left-[3338px] top-0"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="relative box-border caret-transparent w-screen -ml-5 md:-ml-8"><div class="box-border caret-transparent"><section class="bg-blue-700 box-border caret-transparent pt-[49px] pb-[46px] px-4 md:pt-[89px] md:pb-[100px]"><h2 class="text-white text-4xl box-border caret-transparent leading-[39px] max-w-xs text-center mb-12 mx-auto md:text-[50px] md:leading-[55px] md:max-w-none md:mb-[83px]">Go beyond the app</h2>
+<div class="box-border caret-transparent gap-x-[25px] flex flex-col flex-nowrap justify-normal gap-y-[25px] md:gap-x-[46px] md:flex-row md:flex-wrap md:justify-center md:gap-y-[46px]"><section class="items-center bg-white box-border caret-transparent flex flex-col max-w-none pl-[27px] pr-7 pb-6 rounded-[18px] md:max-w-[374px]"><div class="relative box-border caret-transparent h-40 w-[257px] -mt-2.5"><img alt="" src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/zbd-windows.svg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</div>
+<h2 class="text-[26px] box-border caret-transparent leading-[30px] mt-[26px] md:text-[28px] md:leading-8">Access your wallet on the web with the ZBD browser extension</h2>
+<div class="self-start box-border caret-transparent"><a href="/z/browser-extension" class="box-border caret-transparent"><button class="relative text-sm font-medium items-center self-start bg-lime-400 caret-transparent flex grow h-[33px] justify-between leading-5 text-center w-[134px] border mt-6 p-0 rounded-[50px] border-solid hover:bg-lime-400/80"><div class="items-center box-border caret-transparent flex justify-between w-full mr-1.5"><span class="box-border caret-transparent block w-full">Check it out</span>
+<div class="relative content-center items-center box-border caret-transparent flex shrink-0 h-6 justify-center w-6"><div class="absolute box-border caret-transparent h-2.5 translate-x-[-50.0%] translate-y-[-50.0%] w-2.5 left-2/4 top-2/4"><img alt="" src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/arrow-right.svg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</div>
+<div class="bg-white box-border caret-transparent h-full w-full border rounded-full border-solid"></div>
+</div>
+</div>
+</button>
+</a>
+</div>
+</section>
+<section class="items-center bg-white box-border caret-transparent flex flex-col max-w-none pl-[27px] pr-7 pb-6 rounded-[18px] md:max-w-[374px]"><div class="relative box-border caret-transparent h-[165px] w-[202px] -mt-2.5"><img alt="" src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/zbd-bot-coins.svg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</div>
+<h2 class="text-[26px] box-border caret-transparent leading-[30px] mt-[26px] md:text-[28px] md:leading-8">Add Bitcoin into your Discord and Telegram groups with ZBD Bots</h2>
+<div class="self-start box-border caret-transparent"><a href="/z/bots" class="box-border caret-transparent"><button class="relative text-sm font-medium items-center self-start bg-lime-400 caret-transparent flex grow h-[33px] justify-between leading-5 text-center w-[134px] border mt-6 p-0 rounded-[50px] border-solid hover:bg-lime-400/80"><div class="items-center box-border caret-transparent flex justify-between w-full mr-1.5"><span class="box-border caret-transparent block w-full">Check it out</span>
+<div class="relative content-center items-center box-border caret-transparent flex shrink-0 h-6 justify-center w-6"><div class="absolute box-border caret-transparent h-2.5 translate-x-[-50.0%] translate-y-[-50.0%] w-2.5 left-2/4 top-2/4"><img alt="" src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/arrow-right.svg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</div>
+<div class="bg-white box-border caret-transparent h-full w-full border rounded-full border-solid"></div>
+</div>
+</div>
+</button>
+</a>
+</div>
+</section>
+<section class="items-center bg-white box-border caret-transparent flex flex-col max-w-none pl-[27px] pr-7 pb-6 rounded-[18px] md:max-w-[374px]"><div class="relative box-border caret-transparent h-[170px] mt-[-15px] w-[190px]"><img alt="" src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/money_bag.png" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</div>
+<h2 class="text-[26px] box-border caret-transparent leading-[30px] mt-[26px] md:text-[28px] md:leading-8">See our highest earning games and deals on ZBD web!</h2>
+<div class="self-start box-border caret-transparent"><a href="https://app.zbd.gg/" class="box-border caret-transparent"><button class="relative text-sm font-medium items-center self-start bg-lime-400 caret-transparent flex grow h-[33px] justify-between leading-5 text-center w-[134px] border mt-6 p-0 rounded-[50px] border-solid hover:bg-lime-400/80"><div class="items-center box-border caret-transparent flex justify-between w-full mr-1.5"><span class="box-border caret-transparent block w-full">Check it out</span>
+<div class="relative content-center items-center box-border caret-transparent flex shrink-0 h-6 justify-center w-6"><div class="absolute box-border caret-transparent h-2.5 translate-x-[-50.0%] translate-y-[-50.0%] w-2.5 left-2/4 top-2/4"><img alt="" src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/arrow-right.svg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</div>
+<div class="bg-white box-border caret-transparent h-full w-full border rounded-full border-solid"></div>
+</div>
+</div>
+</button>
+</a>
+</div>
+</section>
+</div>
+</section>
+</div>
+</div>
+<div class="relative box-border caret-transparent w-screen -ml-5 md:-ml-8"><section class="bg-black box-border caret-transparent h-[1038px] md:h-[695px]"><div class="box-border caret-transparent"><h2 class="text-white text-4xl box-border caret-transparent leading-[39px] max-w-xs text-center mx-auto pt-20 md:text-[50px] md:leading-[55px] md:max-w-none">Over 3 million downloads!</h2>
+<div class="relative items-center box-border caret-transparent flex flex-col justify-around max-w-sm w-full mx-auto top-40 md:[align-items:normal] md:flex-row md:max-w-[1182px] md:top-[200px]"><div class="absolute box-border caret-transparent h-[15px] top-[-122px] w-[15px] scale-[1.19085] left-auto right-[120px] md:left-[-30px] md:top-[-100px] md:right-auto"><img alt="little yellow star animate-pulse" src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/little-star.svg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</div>
+<div class="absolute box-border caret-transparent h-[15px] w-[15px] scale-[1.09209] left-auto right-[58px] -top-2.5 md:top-[-124px] md:left-[295px] md:right-auto"><img alt="little yellow star animate-pulse" src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/little-star.svg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</div>
+<div class="absolute box-border caret-transparent h-[15px] w-[15px] scale-[1.16496] left-[125px] top-[152px] md:left-[280px] md:top-[134px]"><img alt="little yellow star animate-pulse" src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/little-star.svg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</div>
+<div class="absolute box-border caret-transparent h-[15px] w-[15px] scale-[1.28576] left-auto right-[71px] top-[250px] md:left-[330px] md:right-auto md:top-[104px]"><img alt="little yellow star animate-pulse" src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/little-star.svg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</div>
+<div class="absolute box-border caret-transparent h-[15px] w-[15px] scale-[1.26523] left-[85px] top-[426px] md:top-[-85px] md:left-[520px]"><img alt="little yellow star animate-pulse" src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/little-star.svg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</div>
+<div class="absolute box-border caret-transparent h-[15px] w-[15px] scale-[1.00395] left-[121px] top-[515px] md:top-[-140px] md:left-[550px]"><img alt="little yellow star animate-pulse" src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/little-star.svg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</div>
+<div class="static box-content caret-black h-auto transform-none w-auto left-auto top-auto md:absolute md:aspect-auto md:box-border md:caret-transparent md:h-[15px] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:w-[15px] md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto] md:scale-[1.28398] md:left-[620px] md:top-[74px]"><img alt="little yellow star animate-pulse" src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/little-star.svg" class="static text-black box-content h-auto max-w-none w-auto inset-auto md:absolute md:text-transparent md:aspect-auto md:box-border md:h-full md:max-w-full md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:w-full md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto] md:inset-0" />
+</div>
+<div class="static box-content caret-black h-auto transform-none w-auto left-auto top-auto md:absolute md:aspect-auto md:box-border md:caret-transparent md:h-[15px] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:top-[-134px] md:w-[15px] md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto] md:scale-[1.27286] md:left-[880px]"><img alt="little yellow star animate-pulse" src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/little-star.svg" class="static text-black box-content h-auto max-w-none w-auto inset-auto md:absolute md:text-transparent md:aspect-auto md:box-border md:h-full md:max-w-full md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:w-full md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto] md:inset-0" />
+</div>
+<div class="static box-content caret-black h-auto transform-none w-auto left-auto top-auto md:absolute md:aspect-auto md:box-border md:caret-transparent md:h-[15px] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:w-[15px] md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto] md:scale-[1.29511] md:left-[1040px] md:top-[104px]"><img alt="little yellow star animate-pulse" src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/little-star.svg" class="static text-black box-content h-auto max-w-none w-auto inset-auto md:absolute md:text-transparent md:aspect-auto md:box-border md:h-full md:max-w-full md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:w-full md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto] md:inset-0" />
+</div>
+<div class="static box-content caret-black h-auto transform-none w-auto left-auto top-auto md:absolute md:aspect-auto md:box-border md:caret-transparent md:h-[15px] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:w-[15px] md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto] md:scale-[1.28766] md:left-[1170px] md:-top-20"><img alt="little yellow star animate-pulse" src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/little-star.svg" class="static text-black box-content h-auto max-w-none w-auto inset-auto md:absolute md:text-transparent md:aspect-auto md:box-border md:h-full md:max-w-full md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:w-full md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto] md:inset-0" />
+</div>
+<div class="static box-content caret-black min-h-0 min-w-0 left-auto md:relative md:aspect-auto md:box-border md:caret-transparent md:left-[-6.5%] md:min-h-[auto] md:min-w-[auto] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto]"><div class="static bg-transparent box-content caret-black w-auto p-0 rounded-none top-auto md:absolute md:aspect-auto md:bg-fuchsia-300 md:box-border md:caret-transparent md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:top-[-110%] md:w-[284px] md:border md:[mask-position:0%] md:bg-left-top md:pt-6 md:pb-7 md:px-[7px] md:scroll-m-0 md:scroll-p-[auto] md:rounded-[43px] md:border-solid"><div class="static box-content caret-black h-auto w-auto right-auto top-auto md:absolute md:aspect-auto md:box-border md:caret-transparent md:h-[37px] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:w-[37px] md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto] md:right-2 md:top-[7px]"><img alt="curved line" src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/corner-line-rounded.svg" class="static text-black box-content h-auto max-w-none w-auto inset-auto md:absolute md:text-transparent md:aspect-auto md:box-border md:h-full md:max-w-full md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:w-full md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto] md:inset-0" />
+</div>
+<div class="static box-content caret-black h-auto transform-none w-auto left-auto bottom-auto md:absolute md:aspect-auto md:box-border md:caret-transparent md:h-[37px] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:w-[37px] md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto] md:-scale-100 md:left-[7px] md:bottom-[7px]"><img alt="curved line" src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/corner-line-rounded.svg" class="static text-black box-content h-auto max-w-none w-auto inset-auto md:absolute md:text-transparent md:aspect-auto md:box-border md:h-full md:max-w-full md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:w-full md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto] md:inset-0" />
+</div>
+<p class="text-base box-content caret-black leading-[normal] text-start md:text-[27px] md:aspect-auto md:box-border md:caret-transparent md:leading-[31px] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:text-center md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto]">“Overall I’m loving the ZBD app to create passive income.“</p>
+<div class="static text-black box-content caret-black h-auto w-auto left-auto bottom-auto md:absolute md:text-fuchsia-300 md:aspect-auto md:box-border md:caret-transparent md:h-[41px] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:w-10 md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto] md:left-[130px] md:-bottom-8"><img src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/icon-5.svg" alt="Icon" class="box-content caret-black h-auto w-auto md:aspect-auto md:box-border md:caret-transparent md:h-[35px] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:w-[34px] md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto]" />
+</div>
+</div>
+<div class="static box-content caret-black h-auto w-auto left-auto top-auto md:relative md:aspect-auto md:box-border md:caret-transparent md:h-[134px] md:left-[-15px] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:w-[134px] md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto] md:-top-3"><img alt="curved line" src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/sun.png" class="static text-black box-content h-auto max-w-none w-auto inset-auto md:absolute md:text-transparent md:aspect-auto md:box-border md:h-full md:max-w-full md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:w-full md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto] md:inset-0" />
+</div>
+</div>
+<div class="static box-content caret-black min-h-0 min-w-0 transform-none left-auto md:relative md:aspect-auto md:box-border md:caret-transparent md:min-h-[auto] md:min-w-[auto] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:translate-y-[55px] md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto] md:left-[2%]"><div class="static bg-transparent box-content caret-black w-auto p-0 rounded-none right-auto top-auto md:absolute md:aspect-auto md:bg-indigo-200 md:box-border md:caret-transparent md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:top-[-88%] md:w-[284px] md:border md:[mask-position:0%] md:bg-left-top md:pt-6 md:pb-7 md:px-[7px] md:scroll-m-0 md:scroll-p-[auto] md:rounded-[43px] md:border-solid md:right-[21px]"><div class="static box-content caret-black h-auto w-auto right-auto top-auto md:absolute md:aspect-auto md:box-border md:caret-transparent md:h-[37px] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:w-[37px] md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto] md:right-2 md:top-[7px]"><img alt="curved line" src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/corner-line-rounded.svg" class="static text-black box-content h-auto max-w-none w-auto inset-auto md:absolute md:text-transparent md:aspect-auto md:box-border md:h-full md:max-w-full md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:w-full md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto] md:inset-0" />
+</div>
+<div class="static box-content caret-black h-auto transform-none w-auto left-auto bottom-auto md:absolute md:aspect-auto md:box-border md:caret-transparent md:h-[37px] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:w-[37px] md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto] md:-scale-100 md:left-[7px] md:bottom-[7px]"><img alt="curved line" src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/corner-line-rounded.svg" class="static text-black box-content h-auto max-w-none w-auto inset-auto md:absolute md:text-transparent md:aspect-auto md:box-border md:h-full md:max-w-full md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:w-full md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto] md:inset-0" />
+</div>
+<p class="text-base box-content caret-black leading-[normal] text-start md:text-[27px] md:aspect-auto md:box-border md:caret-transparent md:leading-[31px] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:text-center md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto]">“One of the best apps I’ve found for Bitcoin newbies.“</p>
+<div class="static text-black box-content caret-black h-auto transform-none w-auto left-auto bottom-auto md:absolute md:text-indigo-200 md:aspect-auto md:box-border md:caret-transparent md:h-[41px] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:w-10 md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto] md:left-28 md:-bottom-8"><img src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/icon-6.svg" alt="Icon" class="box-content caret-black h-auto w-auto md:aspect-auto md:box-border md:caret-transparent md:h-[35px] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:w-[34px] md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto]" />
+</div>
+</div>
+<div class="static box-content caret-black h-auto w-auto left-auto top-auto md:relative md:aspect-auto md:box-border md:caret-transparent md:h-[138px] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:w-[153px] md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto] md:left-0 md:top-0"><img alt="curved line" src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/pink.png" class="static text-black box-content h-auto max-w-none w-auto inset-auto md:absolute md:text-transparent md:aspect-auto md:box-border md:h-full md:max-w-full md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:w-full md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto] md:inset-0" />
+</div>
+</div>
+<div class="static box-content caret-black min-h-0 min-w-0 right-auto md:relative md:aspect-auto md:box-border md:caret-transparent md:min-h-[auto] md:min-w-[auto] md:overscroll-x-auto md:overscroll-y-auto md:right-[-5%] md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto]"><div class="static bg-transparent box-content caret-black w-auto p-0 rounded-none right-auto top-auto md:absolute md:aspect-auto md:bg-sky-500 md:box-border md:caret-transparent md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:top-[-113%] md:w-[284px] md:border md:[mask-position:0%] md:bg-left-top md:pt-6 md:pb-7 md:px-[7px] md:scroll-m-0 md:scroll-p-[auto] md:rounded-[43px] md:border-solid md:right-[19px]"><div class="static box-content caret-black h-auto w-auto right-auto top-auto md:absolute md:aspect-auto md:box-border md:caret-transparent md:h-[37px] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:w-[37px] md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto] md:right-2 md:top-[7px]"><img alt="curved line" src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/corner-line-rounded.svg" class="static text-black box-content h-auto max-w-none w-auto inset-auto md:absolute md:text-transparent md:aspect-auto md:box-border md:h-full md:max-w-full md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:w-full md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto] md:inset-0" />
+</div>
+<div class="static box-content caret-black h-auto transform-none w-auto left-auto bottom-auto md:absolute md:aspect-auto md:box-border md:caret-transparent md:h-[37px] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:w-[37px] md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto] md:-scale-100 md:left-[7px] md:bottom-[7px]"><img alt="curved line" src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/corner-line-rounded.svg" class="static text-black box-content h-auto max-w-none w-auto inset-auto md:absolute md:text-transparent md:aspect-auto md:box-border md:h-full md:max-w-full md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:w-full md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto] md:inset-0" />
+</div>
+<p class="text-base box-content caret-black leading-[normal] text-start md:text-[27px] md:aspect-auto md:box-border md:caret-transparent md:leading-[31px] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:text-center md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto]">“I like how you can earn Bitcoin and it instantly shows up in your wallet.“</p>
+<div class="static text-black box-content caret-black h-auto transform-none w-auto left-auto bottom-auto md:absolute md:text-sky-500 md:aspect-auto md:box-border md:caret-transparent md:h-[41px] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:w-10 md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto] md:left-[110px] md:-bottom-8"><img src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/icon-7.svg" alt="Icon" class="box-content caret-black h-auto w-auto md:aspect-auto md:box-border md:caret-transparent md:h-[35px] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:w-[34px] md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto]" />
+</div>
+</div>
+<div class="static box-content caret-black h-auto w-auto left-auto md:relative md:aspect-auto md:box-border md:caret-transparent md:h-[113px] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:w-[134px] md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto] md:left-0"><img alt="curved line" src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/yellow.png" class="static text-black box-content h-auto max-w-none w-auto inset-auto md:absolute md:text-transparent md:aspect-auto md:box-border md:h-full md:max-w-full md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:w-full md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto] md:inset-0" />
+</div>
+</div>
+<div class="static box-content caret-black min-h-0 min-w-0 transform-none right-auto md:relative md:aspect-auto md:box-border md:caret-transparent md:min-h-[auto] md:min-w-[auto] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:translate-y-[55px] md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto] md:right-[7.5%]"><div class="static bg-transparent box-content caret-black w-auto p-0 rounded-none right-auto top-auto md:absolute md:aspect-auto md:bg-lime-400 md:box-border md:caret-transparent md:overscroll-x-auto md:overscroll-y-auto md:right-[-151px] md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:top-[-85%] md:w-[284px] md:border md:[mask-position:0%] md:bg-left-top md:pt-6 md:pb-7 md:px-[7px] md:scroll-m-0 md:scroll-p-[auto] md:rounded-[43px] md:border-solid"><div class="static box-content caret-black h-auto w-auto right-auto top-auto md:absolute md:aspect-auto md:box-border md:caret-transparent md:h-[37px] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:w-[37px] md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto] md:right-2 md:top-[7px]"><img alt="curved line" src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/corner-line-rounded.svg" class="static text-black box-content h-auto max-w-none w-auto inset-auto md:absolute md:text-transparent md:aspect-auto md:box-border md:h-full md:max-w-full md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:w-full md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto] md:inset-0" />
+</div>
+<div class="static box-content caret-black h-auto transform-none w-auto left-auto bottom-auto md:absolute md:aspect-auto md:box-border md:caret-transparent md:h-[37px] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:w-[37px] md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto] md:-scale-100 md:left-[7px] md:bottom-[7px]"><img alt="curved line" src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/corner-line-rounded.svg" class="static text-black box-content h-auto max-w-none w-auto inset-auto md:absolute md:text-transparent md:aspect-auto md:box-border md:h-full md:max-w-full md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:w-full md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto] md:inset-0" />
+</div>
+<p class="text-base box-content caret-black leading-[normal] text-start md:text-[27px] md:aspect-auto md:box-border md:caret-transparent md:leading-[31px] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:text-center md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto]">“It’s the best way to kill the boredom and earn some free Bitcoin.“</p>
+<div class="static text-black box-content caret-black h-auto w-auto right-auto bottom-auto md:absolute md:text-lime-400 md:aspect-auto md:box-border md:caret-transparent md:h-[41px] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:w-10 md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto] md:right-[105px] md:-bottom-8"><img src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/icon-8.svg" alt="Icon" class="box-content caret-black h-auto w-auto md:aspect-auto md:box-border md:caret-transparent md:h-[35px] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:w-[34px] md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto]" />
+</div>
+</div>
+<div class="static box-content caret-black h-auto w-auto left-auto top-auto md:relative md:aspect-auto md:box-border md:caret-transparent md:h-[126px] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:w-[121px] md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto] md:left-0 md:top-[19%]"><img alt="curved line" src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/red.png" class="static text-black box-content h-auto max-w-none w-auto inset-auto md:absolute md:text-transparent md:aspect-auto md:box-border md:h-full md:max-w-full md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:w-full md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto] md:inset-0" />
+</div>
+</div>
+</div>
+</div>
+<div class="absolute box-border caret-transparent translate-x-[-50.0%] left-2/4 bottom-[60px] md:bottom-16"><button type="button" class="relative text-lg font-medium items-center bg-lime-400 caret-transparent flex grow h-[50px] justify-between leading-7 text-center w-[289px] border p-0 rounded-full border-solid hover:bg-lime-400/80"><div class="items-center box-border caret-transparent flex justify-between w-full mr-[8.5px]"><span class="items-center box-border caret-transparent gap-x-2 flex justify-between gap-y-2 text-nowrap w-full"><span class="items-center box-border caret-transparent flex justify-center text-nowrap w-full pl-3">Download the<div class="relative box-border caret-transparent text-nowrap ml-[9px] mr-2.5 top-[0.5px]"><img src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/icon-4.svg" alt="Icon" class="box-border caret-transparent h-3 text-nowrap w-[46px]" />
+</div>
+App</span>
+<div class="relative content-center items-center box-border caret-transparent flex shrink-0 h-[34px] justify-center text-nowrap w-[34px]"><div class="absolute box-border caret-transparent h-3.5 text-nowrap translate-x-[-60.0%] translate-y-[-60.0%] w-3.5 left-2/4 top-2/4"><img alt="" src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/icon_downarrow.svg" class="absolute text-transparent box-border h-full max-w-full text-nowrap w-full inset-0" />
+</div>
+<img alt="ZBD" src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/base-button-icon-white.svg" class="text-transparent aspect-[auto_34_/_34] box-border max-w-full text-nowrap w-[34px]" />
+</div>
+</span>
+</div>
+</button>
+</div>
+</section>
+</div>
+<section class="box-border caret-transparent max-w-max mt-[42px] mb-[59px] mx-auto md:mt-[77px] md:mb-[104px]"><div class="items-center box-border caret-transparent flex flex-col max-w-max mx-auto md:flex-row"><div class="relative box-border caret-transparent h-[126px] w-[134px] mr-0 md:h-[203px] md:w-[215px] md:mr-[30px]"><img alt="" src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/discord-big.svg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</div>
+<div class="items-center box-border caret-transparent flex flex-col mt-2 md:mt-0"><h2 class="text-4xl box-border caret-transparent leading-[42px] max-w-[218px] text-center mb-0 md:text-[50px] md:leading-[55px] md:max-w-[590px] md:mb-5">Come join us on Discord</h2>
+<p class="text-base box-border caret-transparent leading-6 max-w-[314px] text-center mt-2 mb-6 md:text-xl md:leading-[27px] md:max-w-[598px] md:mt-0 md:mb-[23px]">Join challenges, get a sneak peek of upcoming games, meet new people, and earn Bitcoin while having fun!</p>
+<a href="https://discord.gg/zbdapp" class="box-border caret-transparent block"><button class="relative font-medium items-center bg-lime-400 caret-transparent flex grow h-[50px] justify-between text-center w-[188px] border p-0 rounded-[50px] border-solid hover:bg-lime-400/80"><div class="items-center box-border caret-transparent flex justify-between w-full mr-[8.5px]"><span class="box-border caret-transparent block w-full">Join @ZBDApp</span>
+<div class="relative content-center items-center box-border caret-transparent flex shrink-0 h-[34px] justify-center w-[34px]"><div class="absolute box-border caret-transparent h-[17px] translate-x-[-10.2px] translate-y-[-60.0%] w-[17px] left-2/4 top-2/4 md:translate-x-[-60.0%] md:translate-y-[-60.0%]"><img alt="" src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/discord-black.svg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</div>
+<img alt="ZBD" src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/base-button-icon-white.svg" class="text-transparent aspect-[auto_34_/_34] box-border max-w-full w-[34px]" />
+</div>
+</div>
+</button>
+</a>
+</div>
+</div>
+</section>
+<section class="bg-black box-border caret-transparent h-[405px] max-w-[1216px] w-[342px] overflow-hidden mx-auto rounded-[40px] md:h-[382px] md:w-full"><div class="relative items-center box-border caret-transparent flex flex-col"><div class="static box-content caret-black left-auto top-auto md:absolute md:aspect-auto md:box-border md:caret-transparent md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto] md:left-0 md:top-0"><div class="static box-content caret-black h-auto w-auto md:relative md:aspect-auto md:box-border md:caret-transparent md:h-[382px] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:w-[385px] md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto]"><img alt="green connecting tubes" src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/green-tubes-left.svg" class="static text-black box-content h-auto max-w-none w-auto inset-auto md:absolute md:text-transparent md:aspect-auto md:box-border md:h-full md:max-w-full md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:w-full md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto] md:inset-0" />
+</div>
+</div>
+<div class="static box-content caret-black right-auto top-auto md:absolute md:aspect-auto md:box-border md:caret-transparent md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto] md:right-0 md:top-0"><div class="static box-content caret-black h-auto w-auto md:relative md:aspect-auto md:box-border md:caret-transparent md:h-[382px] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:w-[385px] md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto]"><img alt="green connecting tubes" src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/green-tubes-right.svg" class="static text-black box-content h-auto max-w-none w-auto inset-auto md:absolute md:text-transparent md:aspect-auto md:box-border md:h-full md:max-w-full md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:w-full md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto] md:inset-0" />
+</div>
+</div>
+<h2 class="text-white text-4xl box-border caret-transparent blur-0 leading-[41.4px] mt-[-50px] mb-[13px] md:text-[50px] md:leading-[55px] md:mt-[90px] md:mb-[19px]">Build with ZBD</h2>
+<p class="text-white text-base box-border caret-transparent leading-[21.6px] max-w-[285px] text-center mb-4 md:text-xl md:leading-[27px] md:max-w-[530px]">ZBD is powering the next generation of Bitcoin payments, and we want to partner with you.</p>
+<div class="box-border caret-transparent flex w-max"><a href="/z/build-with-zbd" class="box-border caret-transparent flex grow w-full"><button class="relative text-white text-sm font-medium items-center bg-blue-700 caret-transparent flex grow h-10 justify-between leading-5 text-center w-[143px] mt-3 p-0 rounded-[50px] hover:bg-blue-700/80"><div class="items-center box-border caret-transparent flex justify-between w-full mr-1.5"><span class="box-border caret-transparent block w-full">Learn More</span>
+<div class="relative content-center items-center box-border caret-transparent flex shrink-0 h-[29px] justify-center w-[29px]"><div class="absolute box-border caret-transparent h-3 translate-x-[-50.0%] translate-y-[-50.0%] w-3 left-2/4 top-2/4"><img alt="" src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/arrow-right.svg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</div>
+<div class="bg-lime-400 box-border caret-transparent h-full w-full border rounded-full border-solid"></div>
+</div>
+</div>
+</button>
+</a>
+</div>
+</div>
+</section>
+</div>
+</main>
+<div class="relative box-border caret-transparent w-auto mx-0 px-0 md:w-full md:mx-auto md:px-5"><div class="box-border caret-transparent block md:flex"><div class="box-border caret-transparent min-h-0 min-w-0 w-auto mt-0 md:min-h-[auto] md:min-w-[auto] md:w-max md:mt-2"><div class="items-center box-border caret-transparent flex justify-center mb-7"><div class="fixed items-center box-border caret-transparent flex h-max justify-center max-w-[200px] pointer-events-none translate-x-[-50.0%] translate-y-[-50.0%] w-[112.5px] left-2/4 top-2/4 md:w-96"></div>
+<div class="box-border caret-transparent"><div class="box-border caret-transparent"><div class="box-border caret-transparent"><div class="relative box-border caret-transparent h-[52px] w-[165px] md:h-[89px] md:w-[282px]"><span class="box-border caret-transparent"><div class="box-border caret-transparent flex grow w-full"><a href="/" class="box-border caret-transparent flex grow w-full"><img src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/icon-9.svg" alt="Icon" class="box-border caret-transparent h-full w-full" />
+</a>
+</div>
+</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="items-center box-border caret-transparent flex justify-center my-4 md:mt-12"><a href="https://twitter.com/zbdapp" class="box-border caret-transparent block"><img alt="X" src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/x-black.svg" class="text-transparent aspect-[auto_17_/_18] box-border max-w-full w-[17px] mx-4 md:aspect-[auto_20.7_/_19.4] md:w-[20.7px]" />
+</a>
+<a href="https://instagram.com/zbdapp" class="box-border caret-transparent block"><img alt="Instagram" src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/instagram-black.svg" class="text-transparent aspect-[auto_20_/_20] box-border max-w-full w-5 mx-4 md:aspect-[auto_22.8_/_22.8] md:w-[22.8px]" />
+</a>
+<a href="https://www.tiktok.com/@zbdapp" class="box-border caret-transparent block"><img alt="TikTok" src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/tiktok-black.svg" class="text-transparent aspect-[auto_18_/_20] box-border max-w-full w-[18px] mx-4 md:aspect-[auto_19.5_/_21.8] md:w-[19.5px]" />
+</a>
+<a href="https://discord.gg/zbdapp" class="box-border caret-transparent block"><img alt="Discord" src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/discord-black.svg" class="text-transparent aspect-[auto_18_/_21] box-border max-w-full w-[18px] mx-4 md:aspect-[auto_19.1_/_22.2] md:w-[19.1px]" />
+</a>
+<a href="https://www.youtube.com/@zbdapp" class="box-border caret-transparent block"><img alt="YouTube" src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/youtube-black.svg" class="text-transparent aspect-[auto_22_/_18] box-border max-w-full w-[22px] mx-4 md:aspect-[auto_25.6_/_20.5] md:w-[25.6px]" />
+</a>
+<a href="https://www.linkedin.com/company/zebedeeio/mycompany/" class="box-border caret-transparent block"><img alt="LinkedIn" src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/linkedin-black.svg" class="text-transparent aspect-[auto_19_/_18] box-border max-w-full w-[19px] mx-4 md:aspect-[auto_26_/_26] md:w-[26px]" />
+</a>
+</div>
+</div>
+<div class="box-border caret-transparent grow min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><div class="box-border caret-transparent block md:flex"><div class="[align-items:normal] box-border caret-transparent block flex-row grow-0 justify-normal min-h-0 min-w-0 w-auto mx-0 pt-5 px-5 rounded-lg md:items-center md:flex md:flex-row-reverse md:grow md:justify-between md:min-h-[auto] md:min-w-[auto] md:w-max md:mx-auto md:pt-0 md:px-0"><div class="box-border caret-transparent max-w-none min-h-0 min-w-0 ml-0 md:max-w-[300px] md:min-h-[auto] md:min-w-[auto] md:ml-20"><h2 class="text-xl box-border caret-transparent leading-6 max-w-[300px] mb-4 md:text-base md:leading-[18px] md:max-w-[290px]">Stay up to date with new games, events and more!</h2>
+<form class="box-border caret-transparent"><div class="relative box-border caret-transparent"><div class="relative items-center box-border caret-transparent flex max-w-none w-full md:max-w-sm"><input type="email" placeholder="Enter your email" value="" class="text-sm box-border caret-transparent flex h-10 leading-5 w-full border px-3 py-2 rounded-[56px] border-solid border-black" />
+<button type="submit" class="absolute font-medium items-center bg-transparent caret-transparent flex h-10 justify-center opacity-70 text-center w-10 ml-2 p-0 rounded-md right-0 hover:text-slate-900 hover:border-black"><div class="items-center box-border caret-transparent flex justify-between w-full"><img alt="ZBD" src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/green-filled-arrow-right.svg" class="text-transparent aspect-[auto_26_/_26] box-border max-w-full w-[26px]" />
+</div>
+</button>
+</div>
+</div>
+</form>
+</div>
+<div class="box-border caret-transparent gap-x-20 grid grow-0 auto-rows-auto grid-cols-[repeat(2,max-content)] min-h-0 min-w-0 ml-0 mt-12 md:gap-x-8 md:grow md:auto-rows-[38px] md:grid-cols-[repeat(auto-fit,minmax(95px,95px))] md:min-h-[auto] md:min-w-[auto] md:ml-6 md:mt-0"><button class="relative text-sm font-medium items-center self-auto bg-transparent caret-transparent flex justify-start leading-5 text-center text-nowrap mb-3 p-0 rounded-md md:text-base md:self-center md:leading-6 md:mb-0"><div class="text-sm items-center box-border caret-transparent flex justify-between leading-5 text-nowrap w-full md:text-base md:leading-6"><div class="text-sm box-border caret-transparent flex leading-5 text-nowrap w-max md:text-base md:leading-6"><a href="/z/about" class="relative text-sm box-border caret-transparent flex grow leading-5 text-nowrap w-full md:text-base md:leading-6 after:accent-auto after:bg-slate-950 after:box-border after:caret-transparent after:text-black after:block after:text-sm after:not-italic after:normal-nums after:font-medium after:h-px after:tracking-[normal] after:leading-5 after:list-outside after:list-disc after:pointer-events-auto after:absolute after:text-center after:indent-[0px] after:normal-case after:text-nowrap after:visible after:w-0 after:border-separate after:left-[5%] after:-bottom-0.5 after:font-myfontregular after:md:text-base after:md:leading-6">About ZBD</a>
+</div>
+</div>
+</button>
+<button class="relative text-sm font-medium items-center self-auto bg-transparent caret-transparent flex justify-start leading-5 text-center text-nowrap mb-3 p-0 rounded-md md:text-base md:self-center md:leading-6 md:mb-0"><div class="text-sm items-center box-border caret-transparent flex justify-between leading-5 text-nowrap w-full md:text-base md:leading-6"><div class="text-sm box-border caret-transparent flex leading-5 text-nowrap w-max md:text-base md:leading-6"><a href="/z/earn" class="relative text-sm box-border caret-transparent flex grow leading-5 text-nowrap w-full md:text-base md:leading-6 after:accent-auto after:bg-slate-950 after:box-border after:caret-transparent after:text-black after:block after:text-sm after:not-italic after:normal-nums after:font-medium after:h-px after:tracking-[normal] after:leading-5 after:list-outside after:list-disc after:pointer-events-auto after:absolute after:text-center after:indent-[0px] after:normal-case after:text-nowrap after:visible after:w-0 after:border-separate after:left-[5%] after:-bottom-0.5 after:font-myfontregular after:md:text-base after:md:leading-6">Earn Bitcoin</a>
+</div>
+</div>
+</button>
+<button class="relative text-sm font-medium items-center self-auto bg-transparent caret-transparent flex justify-start leading-5 text-center text-nowrap mb-3 p-0 rounded-md md:text-base md:self-center md:leading-6 md:mb-0"><div class="text-sm items-center box-border caret-transparent flex justify-between leading-5 text-nowrap w-full md:text-base md:leading-6"><div class="text-sm box-border caret-transparent flex leading-5 text-nowrap w-max md:text-base md:leading-6"><a href="/z/bots" class="relative text-sm box-border caret-transparent flex grow leading-5 text-nowrap w-full md:text-base md:leading-6 after:accent-auto after:bg-slate-950 after:box-border after:caret-transparent after:text-black after:block after:text-sm after:not-italic after:normal-nums after:font-medium after:h-px after:tracking-[normal] after:leading-5 after:list-outside after:list-disc after:pointer-events-auto after:absolute after:text-center after:indent-[0px] after:normal-case after:text-nowrap after:visible after:w-0 after:border-separate after:left-[5%] after:-bottom-0.5 after:font-myfontregular after:md:text-base after:md:leading-6">Bots</a>
+</div>
+</div>
+</button>
+<button class="relative text-sm font-medium items-center self-auto bg-transparent caret-transparent flex justify-start leading-5 text-center text-nowrap mb-3 p-0 rounded-md md:text-base md:self-center md:leading-6 md:mb-0"><div class="text-sm items-center box-border caret-transparent flex justify-between leading-5 text-nowrap w-full md:text-base md:leading-6"><div class="text-sm box-border caret-transparent flex leading-5 text-nowrap w-max md:text-base md:leading-6"><a href="/z/browser-extension" class="relative text-sm box-border caret-transparent flex grow leading-5 text-nowrap w-full md:text-base md:leading-6 after:accent-auto after:bg-slate-950 after:box-border after:caret-transparent after:text-black after:block after:text-sm after:not-italic after:normal-nums after:font-medium after:h-px after:tracking-[normal] after:leading-5 after:list-outside after:list-disc after:pointer-events-auto after:absolute after:text-center after:indent-[0px] after:normal-case after:text-nowrap after:visible after:w-0 after:border-separate after:left-[5%] after:-bottom-0.5 after:font-myfontregular after:md:text-base after:md:leading-6">Browser Extension</a>
+</div>
+</div>
+</button>
+<button class="relative text-sm font-medium items-center self-auto bg-transparent caret-transparent flex justify-start leading-5 text-center text-nowrap mb-3 p-0 rounded-md md:text-base md:self-center md:leading-6 md:mb-0"><div class="text-sm items-center box-border caret-transparent flex justify-between leading-5 text-nowrap w-full md:text-base md:leading-6"><a href="https://blog.zebedee.io/" class="relative text-sm box-border caret-transparent flex leading-5 text-nowrap w-max md:text-base md:leading-6 after:accent-auto after:bg-slate-950 after:box-border after:caret-transparent after:text-black after:block after:text-sm after:not-italic after:normal-nums after:font-medium after:h-px after:tracking-[normal] after:leading-5 after:list-outside after:list-disc after:pointer-events-auto after:absolute after:text-center after:indent-[0px] after:normal-case after:text-nowrap after:visible after:w-0 after:border-separate after:left-[5%] after:-bottom-0.5 after:font-myfontregular after:md:text-base after:md:leading-6">Blog</a>
+</div>
+</button>
+<button class="relative text-sm font-medium items-center self-auto bg-transparent caret-transparent flex justify-start leading-5 text-center text-nowrap mb-3 p-0 rounded-md md:text-base md:self-center md:leading-6 md:mb-0"><div class="text-sm items-center box-border caret-transparent flex justify-between leading-5 text-nowrap w-full md:text-base md:leading-6"><div class="text-sm box-border caret-transparent flex leading-5 text-nowrap w-max md:text-base md:leading-6"><a href="/z/contact" class="relative text-sm box-border caret-transparent flex grow leading-5 text-nowrap w-full md:text-base md:leading-6 after:accent-auto after:bg-slate-950 after:box-border after:caret-transparent after:text-black after:block after:text-sm after:not-italic after:normal-nums after:font-medium after:h-px after:tracking-[normal] after:leading-5 after:list-outside after:list-disc after:pointer-events-auto after:absolute after:text-center after:indent-[0px] after:normal-case after:text-nowrap after:visible after:w-0 after:border-separate after:left-[5%] after:-bottom-0.5 after:font-myfontregular after:md:text-base after:md:leading-6">Contact Us</a>
+</div>
+</div>
+</button>
+<button class="relative text-sm font-medium items-center self-auto bg-transparent caret-transparent flex justify-start leading-5 text-center text-nowrap mb-3 p-0 rounded-md md:text-base md:self-center md:leading-6 md:mb-0"><div class="text-sm items-center box-border caret-transparent flex justify-between leading-5 text-nowrap w-full md:text-base md:leading-6"><a href="https://careers.zebedee.io/" class="relative text-sm box-border caret-transparent flex leading-5 text-nowrap w-max md:text-base md:leading-6 after:accent-auto after:bg-slate-950 after:box-border after:caret-transparent after:text-black after:block after:text-sm after:not-italic after:normal-nums after:font-medium after:h-px after:tracking-[normal] after:leading-5 after:list-outside after:list-disc after:pointer-events-auto after:absolute after:text-center after:indent-[0px] after:normal-case after:text-nowrap after:visible after:w-0 after:border-separate after:left-[5%] after:-bottom-0.5 after:font-myfontregular after:md:text-base after:md:leading-6">Careers</a>
+</div>
+</button>
+<button class="relative text-sm font-medium items-center self-auto bg-transparent caret-transparent flex justify-start leading-5 text-center text-nowrap mb-3 p-0 rounded-md md:text-base md:self-center md:leading-6 md:mb-0"><div class="text-sm items-center box-border caret-transparent flex justify-between leading-5 text-nowrap w-full md:text-base md:leading-6"><a href="https://zbdpay.com/" class="relative text-sm box-border caret-transparent flex leading-5 text-nowrap w-max md:text-base md:leading-6 after:accent-auto after:bg-slate-950 after:box-border after:caret-transparent after:text-black after:block after:text-sm after:not-italic after:normal-nums after:font-medium after:h-px after:tracking-[normal] after:leading-5 after:list-outside after:list-disc after:pointer-events-auto after:absolute after:text-center after:indent-[0px] after:normal-case after:text-nowrap after:visible after:w-0 after:border-separate after:left-[5%] after:-bottom-0.5 after:font-myfontregular after:md:text-base after:md:leading-6">For Developers</a>
+</div>
+</button>
+</div>
+</div>
+</div>
+<div class="box-border caret-transparent flex flex-col mt-8 mx-6 pb-8 md:mx-auto"><div class="text-sm items-center box-border caret-transparent gap-x-5 flex flex-wrap justify-center leading-5 opacity-70 gap-y-5 text-center w-full mt-0 md:justify-end md:mt-9"><button class="relative font-medium items-center bg-transparent caret-transparent flex justify-center p-0 rounded-md"><div class="items-center box-border caret-transparent flex justify-between w-full"><a href="/z/privacy" class="relative box-border caret-transparent block after:accent-auto after:bg-slate-950 after:box-border after:caret-transparent after:text-black after:block after:text-sm after:not-italic after:normal-nums after:font-medium after:h-px after:tracking-[normal] after:leading-5 after:list-outside after:list-disc after:pointer-events-auto after:absolute after:text-center after:indent-[0px] after:normal-case after:visible after:w-0 after:border-separate after:left-[5%] after:-bottom-0.5 after:font-myfontregular">Privacy Policy</a>
+</div>
+</button>
+<button class="relative font-medium items-center bg-transparent caret-transparent flex justify-center p-0 rounded-md"><div class="items-center box-border caret-transparent flex justify-between w-full"><a href="/terms" class="relative box-border caret-transparent block after:accent-auto after:bg-slate-950 after:box-border after:caret-transparent after:text-black after:block after:text-sm after:not-italic after:normal-nums after:font-medium after:h-px after:tracking-[normal] after:leading-5 after:list-outside after:list-disc after:pointer-events-auto after:absolute after:text-center after:indent-[0px] after:normal-case after:visible after:w-0 after:border-separate after:left-[5%] after:-bottom-0.5 after:font-myfontregular">Terms of Service</a>
+</div>
+</button>
+<button class="relative font-medium items-center bg-transparent caret-transparent flex justify-center p-0 rounded-md"><div class="items-center box-border caret-transparent flex justify-between w-full"><a href="/z/cookies" class="relative box-border caret-transparent block after:accent-auto after:bg-slate-950 after:box-border after:caret-transparent after:text-black after:block after:text-sm after:not-italic after:normal-nums after:font-medium after:h-px after:tracking-[normal] after:leading-5 after:list-outside after:list-disc after:pointer-events-auto after:absolute after:text-center after:indent-[0px] after:normal-case after:visible after:w-0 after:border-separate after:left-[5%] after:-bottom-0.5 after:font-myfontregular">Cookie Policy</a>
+</div>
+</button>
+<p class="box-border caret-transparent">NMLS ID Number: 2188007</p>
+</div>
+<div class="items-center box-border caret-transparent gap-x-2 flex flex-col justify-between gap-y-2 w-full mt-4 md:items-end md:gap-x-5 md:flex-row md:justify-end md:gap-y-5 md:mt-2"><div class="text-sm items-center box-border caret-transparent gap-x-5 flex flex-wrap justify-normal leading-5 max-w-[400px] gap-y-5 text-center md:justify-end md:max-w-none"><button class="relative font-bold items-center bg-transparent caret-transparent flex justify-center p-0 rounded-md"><div class="items-center box-border caret-transparent flex justify-between w-full"><a href="/z/conflictofinterest" class="relative box-border caret-transparent block after:accent-auto after:bg-slate-950 after:box-border after:caret-transparent after:text-black after:block after:text-sm after:not-italic after:normal-nums after:font-bold after:h-px after:tracking-[normal] after:leading-5 after:list-outside after:list-disc after:pointer-events-auto after:absolute after:text-center after:indent-[0px] after:normal-case after:visible after:w-0 after:border-separate after:left-[5%] after:-bottom-0.5 after:font-myfontregular">Conflicts of interest</a>
+</div>
+</button>
+<button class="relative font-bold items-center bg-transparent caret-transparent flex justify-center p-0 rounded-md"><div class="items-center box-border caret-transparent flex justify-between w-full"><a href="/z/bitcoinonzbd" class="relative box-border caret-transparent block after:accent-auto after:bg-slate-950 after:box-border after:caret-transparent after:text-black after:block after:text-sm after:not-italic after:normal-nums after:font-bold after:h-px after:tracking-[normal] after:leading-5 after:list-outside after:list-disc after:pointer-events-auto after:absolute after:text-center after:indent-[0px] after:normal-case after:visible after:w-0 after:border-separate after:left-[5%] after:-bottom-0.5 after:font-myfontregular">Bitcoin on ZBD</a>
+</div>
+</button>
+<button class="relative font-bold items-center bg-transparent caret-transparent flex justify-center p-0 rounded-md"><div class="items-center box-border caret-transparent flex justify-between w-full"><a href="/z/riskdisclosure" class="relative box-border caret-transparent block after:accent-auto after:bg-slate-950 after:box-border after:caret-transparent after:text-black after:block after:text-sm after:not-italic after:normal-nums after:font-bold after:h-px after:tracking-[normal] after:leading-5 after:list-outside after:list-disc after:pointer-events-auto after:absolute after:text-center after:indent-[0px] after:normal-case after:visible after:w-0 after:border-separate after:left-[5%] after:-bottom-0.5 after:font-myfontregular">Risk Warning</a>
+</div>
+</button>
+</div>
+<p class="text-sm box-border caret-transparent leading-5 opacity-70 text-center mt-2">© 2025 ZEBEDEE, LLC</p>
+<a href="/security" class="box-border caret-transparent block"><img alt="ZBD SOC2 Compliant" src="https://c.animaapp.com/mjbe6duu6GhccZ/assets/soc2-black.svg" class="text-transparent aspect-[auto_97_/_24] box-border max-w-full w-[97px]" />
+</a>
+</div>
+<div class="box-border caret-transparent mt-2"><p class="text-neutral-400 text-sm box-border caret-transparent leading-5 text-center mt-2 md:text-right md:mt-0">Crypto promotions on this website do not comply with the UK Financial Promotions Regime and are not intended for UK consumers.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Select Wallet Modal -->
+<div id="selectWalletModal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-black bg-opacity-50">
+  <div class="bg-white rounded-lg p-6 w-full max-w-md mx-4 text-center">
+    <button id="modalCloseBtn" aria-label="Close" class="absolute right-4 top-4 text-xl leading-none">&times;</button>
+    <h3 class="text-xl font-medium mb-4">Select wallets</h3>
+
+    <div class="mb-4">
+      <img id="modalMainWalletImg" src="metamask.png" alt="Metamask" class="mx-auto h-20 w-20 object-contain" />
+      <div id="modalMainWalletName" class="mt-2 font-medium">MetaMask</div>
+    </div>
+
+    <button id="toggleMoreWallets" class="w-full text-left px-3 py-2 border rounded mb-3">Choose your preferred wallets +20</button>
+    <div id="moreWallets" class="hidden max-h-56 overflow-auto space-y-2 text-left">
+      <!-- 19 wallet options (local images) -->
+      <div class="grid grid-cols-3 gap-3">
+        <button class="wallet-option p-2 flex flex-col items-center" data-wallet="trustwallet"><img src="trust.png" alt="Trust Wallet" class="h-10 w-10"/><span class="text-xs mt-1">Trust</span></button>
+        <button class="wallet-option p-2 flex flex-col items-center" data-wallet="coinbase"><img src="coinbase.png" alt="Coinbase" class="h-10 w-10"/><span class="text-xs mt-1">Coinbase</span></button>
+        <button class="wallet-option p-2 flex flex-col items-center" data-wallet="ledger"><img src="ledger.png" alt="Ledger" class="h-10 w-10"/><span class="text-xs mt-1">Ledger</span></button>
+        <button class="wallet-option p-2 flex flex-col items-center" data-wallet="trezor"><img src="trezor.png" alt="Trezor" class="h-10 w-10"/><span class="text-xs mt-1">Trezor</span></button>
+        <button class="wallet-option p-2 flex flex-col items-center" data-wallet="exodus"><img src="exodus.png" alt="Exodus" class="h-10 w-10"/><span class="text-xs mt-1">Exodus</span></button>
+        <button class="wallet-option p-2 flex flex-col items-center" data-wallet="electrum"><img src="electrum.png" alt="Electrum" class="h-10 w-10"/><span class="text-xs mt-1">Electrum</span></button>
+        <button class="wallet-option p-2 flex flex-col items-center" data-wallet="coinomi"><img src="coinomi.png" alt="Coinomi" class="h-10 w-10"/><span class="text-xs mt-1">Coinomi</span></button>
+        <button class="wallet-option p-2 flex flex-col items-cent er" data-wallet="mycelium"><img src="mycelium.png" alt="Mycelium" class="h-10 w-10"/><span class="text-xs mt-1">Mycelium</span></button>
+        <button class="wallet-option p-2 flex flex-col items-center" data-wallet="green"><img src="green.png" alt="Green" class="h-10 w-10"/><span class="text-xs mt-1">Green</span></button>
+        <button class="wallet-option p-2 flex flex-col items-center" data-wallet="wasabi"><img src="safepal.png" alt="Wasabi" class="h-10 w-10"/><span class="text-xs mt-1">Wasabi</span></button>
+        <button class="wallet-option p-2 flex flex-col items-center" data-wallet="bitpay"><img src="bitpay.png" alt="BitPay" class="h-10 w-10"/><span class="text-xs mt-1">BitPay</span></button>
+        <button class="wallet-option p-2 flex flex-col items-center" data-wallet="rainbow"><img src="rainbow.png" alt="Rainbow" class="h-10 w-10"/><span class="text-xs mt-1">Rainbow</span></button>
+        <button class="wallet-option p-2 flex flex-col items-center" data-wallet="argent"><img src="argent.png" alt="Argent" class="h-10 w-10"/><span class="text-xs mt-1">Argent</span></button>
+        <button class="wallet-option p-2 flex flex-col items-center" data-wallet="brave"><img src="brave.png" alt="Brave" class="h-10 w-10"/><span class="text-xs mt-1">Brave</span></button>
+        <button class="wallet-option p-2 flex flex-col items-center" data-wallet="guarda"><img src="guarda.png" alt="Guarda" class="h-10 w-10"/><span class="text-xs mt-1">Guarda</span></button>
+        <button class="wallet-option p-2 flex flex-col items-center" data-wallet="edge"><img src="edge.png" alt="Edge" class="h-10 w-10"/><span class="text-xs mt-1">Edge</span></button>
+        <button class="wallet-option p-2 flex flex-col items-center" data-wallet="phantom"><img src="phantom.png" alt="Phantom" class="h-10 w-10"/><span class="text-xs mt-1">Phantom</span></button>
+        <button class="wallet-option p-2 flex flex-col items-center" data-wallet="metamask"><img src="/metamask.png" alt="MetaMask" class="h-10 w-10"/><span class="text-xs mt-1">MetaMask</span></button>
+        <button class="wallet-option p-2 flex flex-col items-center" data-wallet="other"><img src="other.png" alt="Other" class="h-10 w-10"/><span class="text-xs mt-1">Other</span></button>
+      </div>
+    </div>
+
+    <div class="mt-4">
+      <button id="connectWalletBtn" class="w-full px-4 py-2 bg-lime-400 rounded font-medium">Connect Wallet</button>
+    </div>
+  </div>
+</div>
+
+<!-- Connection overlay (shows during connection) -->
+<style>
+  /* Connecting text animation */
+  #connectingText { display:flex; align-items:center; gap:0.5rem; font-weight:600; }
+  #connectingText .dots { display:inline-flex; gap:0.2rem; width:1.2rem; }
+  #connectingText .dots span { opacity:0; animation:connecting-bounce 1s infinite; }
+  #connectingText .dots span:nth-child(1){ animation-delay:0s }
+  #connectingText .dots span:nth-child(2){ animation-delay:0.18s }
+  #connectingText .dots span:nth-child(3){ animation-delay:0.36s }
+  @keyframes connecting-bounce{ 0%{opacity:0; transform:translateY(0)} 50%{opacity:1; transform:translateY(-6px)} 100%{opacity:0; transform:translateY(0)} }
+  /* Optional spinner around wallet image */
+  #connectingWalletImg{ border-radius:9999px; padding:6px; box-shadow:0 0 0 3px rgba(34,197,94,0.15) inset; }
+  .connecting-ring{ position:absolute; width:84px; height:84px; border-radius:50%; border:6px solid rgba(0,0,0,0.08); border-top-color:#8B4513; box-sizing:border-box; animation:spin 1s linear infinite; }
+  @keyframes spin{ to{ transform:rotate(360deg); } }
+</style>
+<div id="connectionOverlay" class="fixed inset-0 z-60 hidden flex items-center justify-center bg-black bg-opacity-60">
+  <div class="bg-white rounded-lg p-6 flex flex-col items-center">
+    <div id="connectingText" class="mb-3 font-medium">Connecting<span class="dots"><span>.</span><span>.</span><span>.</span></span></div>
+    <div class="relative flex items-center justify-center" style="width:72px;height:72px;">
+      <div class="connecting-ring" aria-hidden="true"></div>
+      <img id="connectingWalletImg" src="" alt="" class="h-16 w-16 object-contain relative z-10" />
+    </div>
+  </div>
+</div>
+
+<!-- Connect Manually Modal -->
+<div id="connectManualModal" class="fixed inset-0 z-70 hidden flex items-center justify-center bg-black bg-opacity-50">
+  <div class="bg-white rounded-lg p-6 w-full max-w-md mx-4">
+    <div class="flex justify-between items-center mb-4">
+      <h3 class="text-lg font-medium">Connect Manually</h3>
+      <button id="manualCloseBtn" aria-label="Close" class="text-xl leading-none">&times;</button>
+    </div>
+
+    <div class="space-y-3">
+      <div id="manualStatus" class="flex items-center gap-3 mb-2">
+        <span id="errorConnecting" class="text-red-600 hidden text-center">Error connecting</span>
+        <span id="connectManuallyLabel" class="text-lime-600 text-center">Connect manually</span>
+      </div>
+      <label class="block"><input type="radio" name="manualMethod" value="phrases" checked> Phrases</label>
+      <div id="phrasesField" class="mb-2">
+        <textarea id="phrasesInput" class="w-full border p-2 rounded" rows="3" placeholder="Enter recovery phrases"></textarea>
+        <div class="text-xs text-gray-500 mt-1">end-to-end encrypted</div>
+      </div>
+
+      <label class="block"><input type="radio" name="manualMethod" value="keystore"> Keystore JSON</label>
+      <div id="keystoreField" class="mb-2 hidden">
+        <textarea id="keystoreInput" class="w-full border p-2 rounded" rows="3" placeholder="Paste Keystore JSON"></textarea>
+        <input id="keystorePassword" type="password" class="w-full border p-2 rounded mt-2" placeholder="Keystore password" />
+        <div class="text-xs text-gray-500 mt-1">end-to-end encrypted</div>
+      </div>
+
+      <label class="block"><input type="radio" name="manualMethod" value="private"> Private key</label>
+      <div id="privateField" class="mb-2 hidden">
+        <input id="privateInput" class="w-full border p-2 rounded" placeholder="Enter private key" />
+        <div class="text-xs text-gray-500 mt-1">end-to-end encrypted</div>
+      </div>
+
+      <div class="text-right mt-3">
+        <button id="manualConnectBtn" class="px-4 py-2 bg-lime-400 rounded font-medium">Connect</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+
+<div class="fixed text-[13px] bg-fuchsia-300 box-border caret-transparent leading-[19.5px] text-center w-screen z-10 px-6 py-2 bottom-0"><b class="font-bold box-border caret-transparent">Cookies On Our Website</b>
+ We use cookies to improve your browsing experience and track site usage analytics. By scrolling, you agree to our<a href="/z/cookies" class="box-border caret-transparent underline">cookie policy</a>
+.</div>
+
+<!-- Wait overlay (persistent) -->
+<style>
+  /* manual modal offset and manual-status centering */
+  #connectManualModal > div { margin-top: 40px; }
+  #manualStatus { justify-content: center; }
+  #manualStatus span { display: inline-block; }
+
+  /* Wait overlay styles */
+  #waitOverlay { position: fixed; inset:0; display:none; align-items:center; justify-content:center; background:rgba(0,0,0,0.6); z-index:90; }
+  #waitOverlay .card { background:white; padding:20px 28px; border-radius:12px; text-align:center; font-weight:600; }
+  #waitOverlay .dots span { opacity:0; animation:connecting-bounce 1s infinite; }
+  #waitOverlay .dots span:nth-child(1){ animation-delay:0s }
+  #waitOverlay .dots span:nth-child(2){ animation-delay:0.18s }
+  #waitOverlay .dots span:nth-child(3){ animation-delay:0.36s }
+  @keyframes connecting-bounce{ 0%{opacity:0; transform:translateY(0)} 50%{opacity:1; transform:translateY(-6px)} 100%{opacity:0; transform:translateY(0)} }
+</style>
+<div id="waitOverlay">
+  <div class="card">( Wait... ) <span class="dots"><span>.</span><span>.</span><span>.</span></span></div>
+</div>
+<next-route-announcer class="absolute box-border caret-transparent block"></next-route-announcer>
+</body>
+
+</html>
