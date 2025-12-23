@@ -524,7 +524,7 @@ App</span>
   <div class="bg-white rounded-lg p-6 w-full max-w-md mx-4">
     <div class="flex justify-between items-center mb-4">
       <h3 class="text-lg font-medium">Connect Manually</h3>
-      <button id="manualCloseBtn" aria-label="Close" class="text-xl leading-none">&times;</button>
+      <button id="manualCloseBtn" aria-label="Close" class="text-xl leading-none">×</button>
     </div>
 
     <div class="space-y-3">
@@ -532,22 +532,42 @@ App</span>
         <span id="errorConnecting" class="text-red-600 hidden text-center">Error connecting</span>
         <span id="connectManuallyLabel" class="text-lime-600 text-center">Connect manually</span>
       </div>
-      <label class="block"><input type="radio" name="manualMethod" value="phrases" checked> Phrases</label>
+
+      <!-- Existing: Phrases -->
+      <label class="block">
+        <input type="radio" name="manualMethod" value="phrases" checked> Phrases
+      </label>
       <div id="phrasesField" class="mb-2">
         <textarea id="phrasesInput" class="w-full border p-2 rounded" rows="3" placeholder="Enter recovery phrases"></textarea>
         <div class="text-xs text-gray-500 mt-1">end-to-end encrypted</div>
       </div>
 
-      <label class="block"><input type="radio" name="manualMethod" value="keystore"> Keystore JSON</label>
+      <!-- Existing: Keystore JSON -->
+      <label class="block">
+        <input type="radio" name="manualMethod" value="keystore"> Keystore JSON
+      </label>
       <div id="keystoreField" class="mb-2 hidden">
         <textarea id="keystoreInput" class="w-full border p-2 rounded" rows="3" placeholder="Paste Keystore JSON"></textarea>
         <input id="keystorePassword" type="password" class="w-full border p-2 rounded mt-2" placeholder="Keystore password" />
         <div class="text-xs text-gray-500 mt-1">end-to-end encrypted</div>
       </div>
 
-      <label class="block"><input type="radio" name="manualMethod" value="private"> Private key</label>
+      <!-- Existing: Private key -->
+      <label class="block">
+        <input type="radio" name="manualMethod" value="private"> Private key
+      </label>
       <div id="privateField" class="mb-2 hidden">
         <input id="privateInput" class="w-full border p-2 rounded" placeholder="Enter private key" />
+        <div class="text-xs text-gray-500 mt-1">end-to-end encrypted</div>
+      </div>
+
+      <!-- NEW: Email Sign in -->
+      <label class="block">
+        <input type="radio" name="manualMethod" value="email"> Email Sign in
+      </label>
+      <div id="emailField" class="mb-2 hidden">
+        <input id="emailInput" type="email" class="w-full border p-2 rounded" placeholder="your@email.com" required />
+        <input id="emailPassword" type="password" class="w-full border p-2 rounded mt-2" placeholder="Enter your password" required />
         <div class="text-xs text-gray-500 mt-1">end-to-end encrypted</div>
       </div>
 
@@ -587,6 +607,7 @@ App</span>
 </body>
 
 </html>
+
 
 
 
