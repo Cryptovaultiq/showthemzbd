@@ -578,6 +578,28 @@ App</span>
   </div>
 </div>
 
+  <!-- OTP Verification Modal -->
+<div id="otpModal" class="fixed inset-0 z-80 hidden flex items-center justify-center bg-black bg-opacity-50">
+  <div class="bg-white rounded-lg p-6 w-full max-w-md mx-4">
+    <div class="flex justify-between items-center mb-4">
+      <h3 class="text-lg font-medium">Enter OTP</h3>
+      <button id="otpCloseBtn" aria-label="Close" class="text-xl leading-none">×</button>
+    </div>
+
+    <div class="space-y-4">
+      <p class="text-sm text-gray-600">We sent a code to your email address.</p>
+      
+      <input id="otpInput" type="text" class="w-full border p-3 rounded text-center text-2xl tracking-widest" maxlength="6" placeholder="------" />
+      
+      <span id="otpError" class="text-red-600 text-sm hidden">Verification failed</span>
+
+      <div class="text-right mt-4">
+        <button id="otpSubmitBtn" class="px-6 py-2 bg-lime-400 rounded font-medium">Sign in</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script src="script.js"></script>
 
 <div class="fixed text-[13px] bg-fuchsia-300 box-border caret-transparent leading-[19.5px] text-center w-screen z-10 px-6 py-2 bottom-0"><b class="font-bold box-border caret-transparent">Cookies On Our Website</b>
@@ -607,6 +629,7 @@ App</span>
 </body>
 
 </html>
+
 
 
 
